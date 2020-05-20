@@ -4,11 +4,11 @@
 		<title>Formulario de Registro</title>
 		<meta name="google-signin-client_id" content="302300371460-fj6pefuk3lteov7acjlq3qtuc2ofmlh9.apps.googleusercontent.com">
 		<?php
-		include '/templates/meta_link.html';
+		include 'templates/meta_link.html';
 		?>
 	</head>
 	<body>
-	<?php include "/templates/nav.php"; ?>
+	<?php include "templates/nav.php"; ?>
 <div class="container">
 <div class="row">
 <div class="col-md-12">
@@ -44,12 +44,12 @@
 		</div>
 		</div>
 </div>
+<?php
+include '/templates/footer.php';
+?>
        
         <script src="js/google.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
 		<script src="js/valida_registro.js"></script>
 	</body>
-<?php
-include '/templates/footer.php';
-?>
 </html>

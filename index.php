@@ -10,13 +10,13 @@
     <title>Celular Fire</title>
     
     <?php
-        include '/templates/meta_link.html';//incluye todas las lineas con los meta y link
+        include 'templates/meta_link.html';//incluye todas las lineas con los meta y link
     ?>
 
 </head>
 <body>
 <?php
-  include '/templates/nav.php';  
+  include 'templates/nav.php';  
 ?>
 <br>   
 
@@ -130,13 +130,13 @@
     </div>
 </div>
 	
+<?php
+include 'templates/footer.php';
+?>
     <script src="script.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     
 </body>
-<?php
-include '/templates/footer.php';
-?>
 </html>

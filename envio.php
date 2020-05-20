@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Pedido</title>
     <?php
-        include '/templates/meta_link.html';
+        include 'templates/meta_link.html';
     ?>
 </head>
 <body>

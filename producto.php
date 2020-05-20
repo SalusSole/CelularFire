@@ -31,7 +31,7 @@
     <meta charset="UTF-8">
     
     <?php
-        include '/templates/meta_link.html'
+        include 'templates/meta_link.html'
     ?>
     
     <title>Celular Fire | Tu compra</title>
@@ -91,7 +91,7 @@
 </header>
 -->
 <?php
-    include '/templates/nav.php';
+    include 'templates/nav.php';
     $sql= "SELECT * FROM productos";
     $result=mysqli_query($conexion,$sql);
 
@@ -331,13 +331,13 @@
 -->
   
 </div>
+<?php
+include 'templates/footer.php';
+?>
 <script src="script.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 </body>
-<?php
-include '/templates/footer.php';
-?>
 </html>

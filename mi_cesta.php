@@ -9,13 +9,13 @@
     <meta charset="UTF-8">
     <title>Celular Fire | Cesta</title>
     <?php
-        include '/templates/meta_link.html';//incluye todas las lineas con los meta y link
+        include 'templates/meta_link.html';//incluye todas las lineas con los meta y link
     ?>
 </head>
 <body>
 <header>
     <?php
-        include '/templates/nav.php';//incluye el nav
+        include 'templates/nav.php';//incluye el nav
     ?>
     <br><br>
 </header>
@@ -167,12 +167,12 @@
     ?>
         
 
+<?php
+include 'templates/footer.php';
+?>
 <script src="../script.js"></script>
 <script src="../js/jquery-3.4.1.min.js"></script>
 <script src="../js/popper.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 </body>
-<?php
-include '/templates/footer.php';
-?>
 </html>

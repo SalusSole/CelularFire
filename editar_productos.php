@@ -17,14 +17,14 @@
 <head>
     <meta charset="UTF-8">
     <?php
-        include '/templates/meta_link.html'
+        include 'templates/meta_link.html'
     ?>
     <title>Celular Fire | Tu compra</title>
 </head>
 <body>
 
 <?php
-    include '/templates/nav_admin.php';
+    include 'templates/nav_admin.php';
     $sql= "SELECT * FROM productos";
     $result=mysqli_query($conexion,$sql);
 
