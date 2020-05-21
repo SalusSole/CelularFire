@@ -341,5 +341,14 @@ footer {
   .nav { overflow: auto; }
 }
 
+.search{
+  border: none;
+  height: 2.5em;
+}
 
-
+.search-container{
+  margin-left: 3em;
+  margin-right: 3em;
+  background-color: #fff;
+  border-radius: 15px;
+}

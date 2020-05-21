@@ -70,11 +70,28 @@
             </div>
             <br><br>
         </div> -->
-        <div>
-            <form method="POST" action="search.php" onSubmit="return validarForm(this)">
-                <input type="text" placeholder="Buscar usuario" name="palabra">
-                <input type="submit" value="Buscar" name="buscar">
-            </form>
+        <!-- <div class="col-sm-12 col-md-3 col-lg-4">
+            <div>
+                <h5 class="text-center titulos">BUSCAR PRODUCTOS</h5>
+            </div>
+            <div>
+                <form method="POST" action="search.php" onSubmit="return validarForm(this)">
+                    <input type="text" placeholder="Buscar usuario" name="palabra">
+                    <input type="submit" value="Buscar" name="buscar">
+                </form>
+            <div>
+        </div> -->
+        <div class="col-sm-12 col-md-3 col-lg-4">
+            <div>
+                <h5 class="text-center titulos">BUSCAR PRODUCTOS</h5>
+            </div>
+            <div class="text-center search-container">
+                <form method="POST" action="search.php" onSubmit="return validarForm(this)">
+                    <input class="search" type="text" placeholder="&nbsp;&nbsp;Buscar productos..." name="palabra" required>
+                    <input type="image" value="Buscar" name="buscar" src="img/iconos/icons/search.png" width="25px">
+                </form>
+            </div>
+            <br><br>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
             <div>
