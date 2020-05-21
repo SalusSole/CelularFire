@@ -9,12 +9,12 @@
     <meta charset="UTF-8">
     <title>Editar los productos</title>
     <?php
-        include '/templates/meta_link.html';
+        include 'templates/meta_link.html';
     ?>
 </head>
 <body>
 <?php
-    include '/templates/nav_admin.php';
+    include 'templates/nav_admin.php';
 ?>
 <br>
 <div class="container">

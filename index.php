@@ -22,7 +22,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 col-md-3 col-lg-4">
+        <!-- <div class="col-sm-12 col-md-3 col-lg-4">
             <div>
                 <h5 class="text-center titulos">CATEGORÍAS</h5>
             </div>
@@ -69,6 +69,12 @@
                 </div>
             </div>
             <br><br>
+        </div> -->
+        <div>
+            <form method="POST" action="search.php" onSubmit="return validarForm(this)">
+                <input type="text" placeholder="Buscar usuario" name="palabra">
+                <input type="submit" value="Buscar" name="buscar">
+            </form>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
             <div>
