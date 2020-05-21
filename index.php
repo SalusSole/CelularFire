@@ -81,19 +81,19 @@
                 </form>
             <div>
         </div> -->
-        <div class="col-sm-12 col-md-3 col-lg-4">
+        <div class="col-sm-12 col-md-12 col-lg-4">
             <div>
                 <h5 class="text-center titulos">BUSCAR PRODUCTOS</h5>
             </div>
             <div class="text-center search-container">
-                <form method="POST" action="search.php" onSubmit="return validarForm(this)">
-                    <input class="search" type="text" placeholder="&nbsp;&nbsp;Buscar productos..." name="palabra" required>
-                    <input type="image" value="Buscar" name="buscar" src="img/iconos/icons/search.png" width="25px">
+                <form method="GET" action="search.php">
+                    <input class="search" type="text" placeholder="Buscar..." name="palabra" required>
+                    <input type="image" value="Buscar" name="buscar" src="img/iconos/icons/search.png" width="23px">
                 </form>
             </div>
             <br><br>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
             <div>
                 <h5 class="text-center titulos">TODOS LOS PRODUCTOS</h5>
             </div>
@@ -109,10 +109,10 @@
         $id=$mostrar['id_producto'];
         $num_foto=$mostrar['numero_foto_uno'];
             
-        echo '<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 bottom">
+        echo '<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 bottom">
                         <div class="cont-img">
                             <div class="contenedores imagenes">';
-                                echo "<a class='hyper' href='producto.php?id=$id'><img class='img-fluid contenedores' src='img/productos/$num_foto.png'' alt='X'></a>";
+                                echo "<a class='hyper' href='producto.php?id=$id'><img class='img-fluid contenedores' src='$num_foto' alt='X'></a>";
                                 echo"
                                 <center>
                                 <a class='hyper contenido' style='text-decoration:none' href='producto.php?id=$id'>".$mostrar['marca']." ".$mostrar['modelo']." ".$mostrar['calidad']."</a>
@@ -126,7 +126,8 @@
                                 </center>
                             </div>
                         </div>
-                </div>';
+                </div>'
+                ;
         
             
         }else{
@@ -135,9 +136,13 @@
             echo '<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 bottom">
                         <div class="cont-img">
                             <div class="contenedores imagenes">';
-                                echo "<img class='img-fluid contenedores' src='img/productos/$num_foto.png'' alt='X'>";
+                                echo "<img class='img-fluid contenedores' src='$num_foto' alt='X'>";
                                 echo"
                                 <center>
+                                <a class='hyper contenido' style='text-decoration:none' href='producto.php?id=$id'>".$mostrar['marca']." ".$mostrar['modelo']." ".$mostrar['calidad']."</a>
+                                <br>
+                                <a class='hyper contenido' style='text-decoration:none' href='producto.php?id=$id'>".$mostrar['categoria'].".</a>
+                                <br>
                                 <span class='agotado'>Producto agotado.</span>
                                 <br>                                                                                                                   
                                 </center>
@@ -154,6 +159,7 @@
 </div>
 	
 <?php
+mysqli_close($conexion);
 include 'templates/footer.php';
 ?>
     <script src="script.js"></script>

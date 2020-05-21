@@ -29,7 +29,8 @@ footer {
     margin-top: 1em;
 }
 .cesta{
-  font-family: 'Comfortaa', cursive;
+  font-family: 'DM Sans', sans-serif;
+  color: #466988;
   font-size: 1.3em;
 }
 .titulos{
@@ -343,12 +344,17 @@ footer {
 
 .search{
   border: none;
+  width: 80%;
   height: 2.5em;
 }
 
 .search-container{
-  margin-left: 3em;
-  margin-right: 3em;
   background-color: #fff;
   border-radius: 15px;
+}
+.resultado-search{
+  margin: 25px;
+  font-size: 1.3em;
+  font-family: 'DM Sans', sans-serif;
+  color: #466988;
 }
