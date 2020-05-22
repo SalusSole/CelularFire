@@ -27,34 +27,48 @@ if(!empty($_POST)){
                 echo "New record created successfully";
                 
                 //en caso de que se registre todo correctamente manda correo de verificación
-                $mail = new PHPMailer(true);
-
-                try {
-                    //Server settings
-                    $mail->SMTPDebug = 0;                      // Enable verbose debug output
-                    $mail->isSMTP();                                            // Send using SMTP
-                    $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
-                    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                    $mail->Username   = 'ch1.yomero.ss@gmail.com';                     // SMTP username
-                    $mail->Password   = '1QholaWcomoEestasRTY';                               // SMTP password
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-                    $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-
-                    //Recipients
-                    $mail->setFrom('ch1.yomero.ss@gmail.com', 'Administrador');
-                    $mail->addAddress($_POST['email']);
-
-                    // Content
-                    $mail->isHTML(true);                                  // Set email format to HTML
-                    $mail->Subject = 'Verifique su correo electronico';
-                    $mail->Body    = 'Para poder realizar compras es necesario que verifique su cuenta de correo. Si este es su correo haga click en el siguiente enlace para ser redirigido a Celular Fire. <br> <center> <a class="btn" href="http://localhost/cf-four/php/logout.php?estado_cuenta=1">Empieza a comprar ahora.</a></center>';
-                    $mail->send();
-                    echo 'El mensaje ha sido enviado';
-                } catch (Exception $e) {
-                    echo "Hubo un problema al enviar el correo. Error: {$mail->ErrorInfo}";
-                }
                 
+                //funcion para PHPMAILER para su funcionamiento en Localhost, pero para el hosting se usa PhP Mail().
+                // $mail = new PHPMailer(true);
+
+                // try {
+                //     //Server settings
+                //     $mail->SMTPDebug = 0;                      // Enable verbose debug output
+                //     $mail->isSMTP();                                            // Send using SMTP
+                //     $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+                //     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                //     $mail->Username   = 'ch1.yomero.ss@gmail.com';                     // SMTP username
+                //     $mail->Password   = 'contraseña*';                               // SMTP password
+                //     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                //     $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+                //     //Recipients
+                //     $mail->setFrom('ch1.yomero.ss@gmail.com', 'Administrador');
+                //     $mail->addAddress($_POST['email']);
+
+                //     // Content
+                //     $mail->isHTML(true);                                  // Set email format to HTML
+                //     $mail->Subject = 'Verifique su correo electronico';
+                //     $mail->Body    = 'Para poder realizar compras es necesario que verifique su cuenta de correo. Si este es su correo haga click en el siguiente enlace para ser redirigido a Celular Fire. <br> <center> <a class="btn" href="http://localhost/cf-four/php/logout.php?estado_cuenta=1">Empieza a comprar ahora.</a></center>';
+                //     $mail->send();
+                //     echo 'El mensaje ha sido enviado';
+                // } catch (Exception $e) {
+                //     echo "Hubo un problema al enviar el correo. Error: {$mail->ErrorInfo}";
+                // }
                 
+                //Código para PHP Mail().
+                
+                ini_set( 'display_errors', 1 );
+                error_reporting( E_ALL );
+                $from = "admin@celularfireonline.com";
+                $to = $_POST['email'];
+                $subject = "Checking PHP mail";
+                $message = "PHP mail works just fine";
+                $headers = "From:" . $from;
+                mail($to,$subject,$message, $headers);
+                echo "The email message was sent.";
+
+
             } else {
                   echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
             }
