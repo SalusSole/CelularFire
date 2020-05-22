@@ -88,14 +88,16 @@ if($sql= "SELECT * FROM productos WHERE marca like '%$buscar%' or modelo like '%
             }
        } 
     }
-}if($sql= "SELECT * FROM productos WHERE marca like '%$buscar%' or modelo not like '%$buscar%' or categoria like '%$buscar%'"){
-?>
-<div class="text-center resultado-search">
-    <span>Su busqueda no tiene resultados :(</span>
-    <br>
-    <span>Pruebe con otra cosa.</span>
-</div>
-<?php
+    $row = mysqli_num_rows($result); 
+    if($row==0){
+        ?>
+        <div class="text-center resultado-search">
+            <span>Su busqueda no tiene resultados :(</span>
+            <br>
+            <span>Pruebe con otra cosa.</span>
+        </div>
+        <?php
+    }
 }
 ?>
 
