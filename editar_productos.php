@@ -45,6 +45,7 @@
         $menudeo=$mostrar['precio_menudeo'];
         $mayoreo=$mostrar['precio_mayoreo'];
 
+
     ?>
     
         <div class="container">
@@ -60,11 +61,11 @@
                                                         echo"
                                                         <!--Contenedores imagenes carrusel-->
                                                         <div class='carousel-item active thumbnail '>
-                                                            <img type='button' data-toggle='modal' data-target='#exampleModaluno' class='d-block img-fluid contenedores' width='600em' src='img/productos/$uno.png' alt='First slide'>
+                                                            <img type='button' data-toggle='modal' data-target='#exampleModaluno' class='d-block img-fluid contenedores' width='600em' src='$uno' alt='First slide'>
                                                             <div class=' text-center'><p>1/2</p></div>
                                                         </div>
                                                         <div class='carousel-item'>
-                                                            <img type='button' data-toggle='modal' data-target='#exampleModaldos' class='d-block img-fluid contenedores' width='600em' src='img/productos/$dos.png' alt='Second slide'>
+                                                            <img type='button' data-toggle='modal' data-target='#exampleModaldos' class='d-block img-fluid contenedores' width='600em' src='$dos' alt='Second slide'>
                                                             <div class=' text-center'><p>2/2</p></div>
                                                         </div>
                                                         <!--Fin Contenedores imagenes carrusel-->
@@ -217,7 +218,7 @@
         </button>
         <center>
             <?php echo"
-                <img src='img/productos/$uno.png' class='img-fluid' alt=''>";
+                <img src='$uno' class='img-fluid' alt=''>";
             ?>
         </center>
       </div>
@@ -235,7 +236,7 @@
         </button>
         <center>
             <?php echo"
-                <img src='img/productos/$dos.png' class='img-fluid' alt=''>";
+                <img src='$dos' class='img-fluid' alt=''>";
             ?>
         </center>
       </div>

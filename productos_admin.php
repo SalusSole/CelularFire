@@ -32,7 +32,7 @@
         echo '<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 bottom">
                         <div class="cont-img">
                             <div class="contenedores imagenes">';
-                                echo "<a class='hyper' href='editar_productos.php?id=$id'><img class='img-fluid contenedores' src='img/productos/$num_foto.png'' alt='X'></a>";
+                                echo "<a class='hyper' href='editar_productos.php?id=$id'><img class='img-fluid contenedores' src='$num_foto'' alt='X'></a>";
                                 echo"
                                 <center>
                                 <a class='hyper contenido' style='text-decoration:none' href='editar_productos.php?id=$id'>".$mostrar['marca']." ".$mostrar['modelo']." ".$mostrar['calidad']."</a>

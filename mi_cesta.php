@@ -52,7 +52,7 @@
                                         <div class='contenedores'>
                                             <div class='row text-left'>
                                                 <div class='col-sm-5 col-md-4'>
-                                                    <img class='img-fluid contenedores img-cesta' src='img/productos/$productos->imagen.png' alt=''>
+                                                    <img class='img-fluid contenedores img-cesta' src='$productos->imagen' alt=''>
                                                 </div>
                                                 <div class='col-sm-7 col-md-8'>
                                                     <span class='contenido'>$productos->marca $productos->modelo $productos->calidad $productos->categoria</span>
@@ -79,7 +79,7 @@
                                         <div class='contenedores'>
                                             <div class='row text-left'>
                                                 <div class='col-sm-5 col-md-4'>
-                                                    <img class='img-fluid contenedores img-cesta' src='../img/productos/$productos->imagen.png' alt=''>
+                                                    <img class='img-fluid contenedores img-cesta' src='$productos->imagen' alt=''>
                                                 </div>
                                                 <div class='col-sm-7 col-md-8'>
                                                     <span class='contenido'>$productos->marca $productos->modelo $productos->calidad $productos->categoria</span>

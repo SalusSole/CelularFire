@@ -2,7 +2,7 @@
     <div class=" container" >
         <div class="text-center">
            <br>
-            <a class="admin" href="admin.php"><img class="img-fluid logo-admin" width="80em" src="img/cf.png" alt="Celular Fire"/>&nbsp;Admin</a>
+            <a class="admin" href="productos_admin.php"><img class="img-fluid logo-admin" width="80em" src="img/cf.png" alt="Celular Fire"/>&nbsp;Admin</a>
         </div>
     </div>
 </header>
