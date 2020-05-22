@@ -14,7 +14,8 @@ if(!empty($_POST)){
 			
 			$found=false;
 			$sql1= "select * from user where username=\"$_POST[username]\" or email=\"$_POST[email]\"";
-			$query = $conexion->query($sql1);
+            $query = $conexion->query($sql1);
+            $user=$_POST['username'];
 			while ($r=$query->fetch_array()) {
 				$found=true;
 				break;
@@ -63,7 +64,15 @@ if(!empty($_POST)){
                 $from = "admin@celularfireonline.com";
                 $to = $_POST['email'];
                 $subject = "Verifique su correo electronico";
-                $message = 'Para poder realizar compras es necesario que verifique su cuenta de correo. Si este es su correo haga click en el siguiente enlace para ser redirigido a Celular Fire. <br> <center> <a class="btn" href="http://localhost/cf-four/php/logout.php?estado_cuenta=1">Empieza a comprar ahora.</a></center>';
+                $message = "<html>".
+                            "<body>".
+                            "<h1>Para realizar compras es necesario que verifique su cuenta de correo para la cuenta $user</h1>".
+                            "</body>".
+                            "</html>".
+
+                // $message = 'Para poder realizar compras es necesario que verifique su cuenta de correo. Si este es su correo haga click en el siguiente enlace para ser redirigido a Celular Fire. <br> <center> <a class="btn" href="http://localhost/cf-four/php/logout.php?estado_cuenta=1">Empieza a comprar ahora.</a></center>';
+                $headers = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
                 $headers = "From:" . $from;
                 mail($to,$subject,$message, $headers);
                 echo "The email message was sent.";
