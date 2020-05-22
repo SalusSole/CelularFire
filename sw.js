@@ -3,10 +3,10 @@
 const CACHE_NAME = 'v1_cache_cf',
   urlsToCache = [
     './',
-    './css/styles.css',
-    './css/bootstrap.min.css',
-    './script.js',
-    './img/favicon.png'
+    'css/styles.css',
+    'css/bootstrap.min.css',
+    'script.js',
+    'img/favicon.png'
   ]
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
