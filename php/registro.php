@@ -1,11 +1,11 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
 
-require '../phpmailer/Exception.php';
-require '../phpmailer/PHPMailer.php';
-require '../phpmailer/SMTP.php';
+// require '../phpmailer/Exception.php';
+// require '../phpmailer/PHPMailer.php';
+// require '../phpmailer/SMTP.php';
 
 if(!empty($_POST)){
 	if(isset($_POST["username"]) &&isset($_POST["fullname"]) &&isset($_POST["email"]) &&isset($_POST["password"]) &&isset($_POST["confirm_password"])){
@@ -62,9 +62,9 @@ if(!empty($_POST)){
                 error_reporting( E_ALL );
                 $from = "admin@celularfireonline.com";
                 $to = $_POST['email'];
-                $subject = "Checking PHP mail";
-                $message = "PHP mail works just fine";
-                $headers = "From:" . $from;
+                $subject = "Verifique su correo electronico";
+                $message = 'Para poder realizar compras es necesario que verifique su cuenta de correo. Si este es su correo haga click en el siguiente enlace para ser redirigido a Celular Fire. <br> <center> <a class="btn" href="http://localhost/cf-four/php/logout.php?estado_cuenta=1">Empieza a comprar ahora.</a></center>';
+                //$headers = "From:" . $from;
                 mail($to,$subject,$message, $headers);
                 echo "The email message was sent.";
 
