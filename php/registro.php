@@ -64,7 +64,7 @@ if(!empty($_POST)){
                 $to = $_POST['email'];
                 $subject = "Verifique su correo electronico";
                 $message = 'Para poder realizar compras es necesario que verifique su cuenta de correo. Si este es su correo haga click en el siguiente enlace para ser redirigido a Celular Fire. <br> <center> <a class="btn" href="http://localhost/cf-four/php/logout.php?estado_cuenta=1">Empieza a comprar ahora.</a></center>';
-                //$headers = "From:" . $from;
+                $headers = "From:" . $from;
                 mail($to,$subject,$message, $headers);
                 echo "The email message was sent.";
 
