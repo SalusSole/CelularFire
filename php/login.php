@@ -57,5 +57,5 @@ if(!empty($_POST)){
 }
 
 
-
+mysqli_close($conexion);
 ?>

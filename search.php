@@ -106,3 +106,6 @@ if($sql= "SELECT * FROM productos WHERE marca like '%$buscar%' or modelo like '%
 </div>
 </body>
 </html>
+<?php
+mysqli_close($conexion);
+?>

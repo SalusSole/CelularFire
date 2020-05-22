@@ -179,3 +179,6 @@ $id_elementos=$elem->count();
     </center>
 </body>
 </html>
+<?php
+mysqli_close($conexion);
+?>

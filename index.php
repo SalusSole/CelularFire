@@ -158,10 +158,6 @@
     </div>
 </div>
 	
-<?php
-mysqli_close($conexion);
-include 'templates/footer.php';
-?>
     <script src="script.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -169,3 +165,7 @@ include 'templates/footer.php';
     
 </body>
 </html>
+
+<?php
+mysqli_close($conexion);
+?>

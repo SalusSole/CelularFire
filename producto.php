@@ -341,3 +341,6 @@ include 'templates/footer.php';
 
 </body>
 </html>
+<?php
+mysqli_close($conexion);
+?>
