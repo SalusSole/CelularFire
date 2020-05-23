@@ -68,20 +68,39 @@ if(!empty($_POST)){
                 $message = "
                 <html>
                 <head>
-                <title>HTML email</title>
+                <title>Correo de confirmación</title>
+                <link href='https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap' rel='stylesheet'> 
                 </head>
                 <body>
-                <p>This email contains HTML Tags!</p>
-                <table>
-                <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                </tr>
-                <tr>
-                <td>John</td>
-                <td>Doe</td>
-                </tr>
-                </table>
+                <style>
+                        body{
+                            background-color: #ebebeb;
+                        }
+                        h1{
+                            color: #f3f3f3;
+                        }
+                        .container{
+                            margin: 100px;
+                            background-color: #fff;
+                            border-radius: 30px;
+                        }
+                        .contenido{
+                            padding-top: 50px;
+                            padding-bottom: 50px;
+                            margin: 100px;
+                            color: #523616;
+                        }
+                    </style>
+
+                <div class='container'>
+                    <div class='contenido'>
+                        <img src='https://i.ibb.co/xjvRbPH/cf.png' alt='Celular Fire' width='100em'>
+                        <h2><strong>¡Bienvenido a Celular Fire Online!</strong></h2>
+                        <p>Para realizar compras es necesario que verifique su cuenta de correo para la cuenta: <strong>$user</strong></p>
+                        <p>Para realizar la verificacion de su cuenta haga click en el siguiente botón</p>
+                        <a href="">Confirmar mi cuenta</a>
+                    </div>
+                </div>
                 </body>
                 </html>
                 ";
