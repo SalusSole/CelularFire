@@ -71,7 +71,6 @@ if(!empty($_POST)){
                 <title>Correo de confirmación</title>
                 <link href='https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap' rel='stylesheet'> 
                 </head>
-                <body>
                 <style>
                         body{
                             background-color: #ebebeb;
@@ -90,15 +89,15 @@ if(!empty($_POST)){
                             margin: 100px;
                             color: #523616;
                         }
-                    </style>
+                </style>
+                <body>
 
                 <div class='container'>
                     <div class='contenido'>
                         <img src='https://i.ibb.co/xjvRbPH/cf.png' alt='Celular Fire' width='100em'>
                         <h2><strong>¡Bienvenido a Celular Fire Online!</strong></h2>
                         <p>Para realizar compras es necesario que verifique su cuenta de correo para la cuenta: <strong>$user</strong></p>
-                        <p>Para realizar la verificacion de su cuenta haga click en el siguiente botón</p>
-                        <a href="">Confirmar mi cuenta</a>
+                        <p>Para realizar la verificacion de su cuenta haga click en <a href='https://celularfireonline.com/php/verificacion.php?nombre_usuario=$user'>este enlace</a></p>
                     </div>
                 </div>
                 </body>
