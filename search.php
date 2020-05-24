@@ -32,19 +32,21 @@ $buscar = $_GET["palabra"];
 if($sql= "SELECT * FROM productos WHERE marca like '%$buscar%' or modelo like '%$buscar%' or categoria like '%$buscar%'"){
     $result=mysqli_query($conexion,$sql);
 
+    ?>
+        <div class="text-center resultado-search">
+            <span>Resultado de su busqueda</span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+            <div class="row">
+     <?php
+
     while($mostrar = mysqli_fetch_assoc($result)) 
        {
         if($mostrar['disponibilidad']=='existencias'){
             $id=$mostrar['id_producto'];
             $num_foto=$mostrar['numero_foto_uno'];
             
-            ?>
-            <div class="text-center resultado-search">
-                <span>Resultado de su busqueda</span>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
-                <div class="row">
-            <?php
+            
 
             echo '<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 bottom">
                             <div class="cont-img">
