@@ -358,3 +358,7 @@ footer {
   font-family: 'DM Sans', sans-serif;
   color: #466988;
 }
+.paginador{
+  display: flex;
+  justify-content: center;
+}
