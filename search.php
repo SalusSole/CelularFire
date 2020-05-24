@@ -22,16 +22,20 @@ $buscar = $_GET["palabra"];
     <div class="text-center search-container">
         <form method="GET" action="search.php">
             <?php
-                echo "<input class='search' type='text' placeholder='$buscar' name='palabra' required>";
+                echo "<input class='search' type='text' value='$buscar' name='palabra' required>";
             ?>
             <input type="image" value="Buscar" name="buscar" src="img/iconos/icons/search.png" width="23px">
         </form>
     </div>
     
 <?php
+
+  
 if($sql= "SELECT * FROM productos WHERE marca like '%$buscar%' or modelo like '%$buscar%' or categoria like '%$buscar%'"){
     $result=mysqli_query($conexion,$sql);
 
+    $row = mysqli_num_rows($result); 
+    if($row>0){
     ?>
         <div class="text-center resultado-search">
             <span>Resultado de su busqueda</span>
@@ -39,9 +43,8 @@ if($sql= "SELECT * FROM productos WHERE marca like '%$buscar%' or modelo like '%
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
             <div class="row">
      <?php
-
-    while($mostrar = mysqli_fetch_assoc($result)) 
-       {
+    }
+    while($mostrar = mysqli_fetch_assoc($result)) {
         if($mostrar['disponibilidad']=='existencias'){
             $id=$mostrar['id_producto'];
             $num_foto=$mostrar['numero_foto_uno'];
@@ -69,26 +72,26 @@ if($sql= "SELECT * FROM productos WHERE marca like '%$buscar%' or modelo like '%
             
                 
             }else{
-            $id=$mostrar['id_producto'];
-            $num_foto=$mostrar['numero_foto_uno'];
-                echo '<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 bottom">
-                            <div class="cont-img">
-                                <div class="contenedores imagenes">';
-                                    echo "<img class='img-fluid contenedores' src='$num_foto' alt='X'>";
-                                    echo"
-                                    <center>
-                                    <a class='hyper contenido' style='text-decoration:none' href='producto.php?id=$id'>".$mostrar['marca']." ".$mostrar['modelo']." ".$mostrar['calidad']."</a>
-                                    <br>
-                                    <a class='hyper contenido' style='text-decoration:none' href='producto.php?id=$id'>".$mostrar['categoria'].".</a>
-                                    <br>
-                                    <span class='agotado'>Producto agotado.</span>
-                                    <br>                                                                                                                   
-                                    </center>
+                $id=$mostrar['id_producto'];
+                $num_foto=$mostrar['numero_foto_uno'];
+                    echo '<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 bottom">
+                                <div class="cont-img">
+                                    <div class="contenedores imagenes">';
+                                        echo "<img class='img-fluid contenedores' src='$num_foto' alt='X'>";
+                                        echo"
+                                        <center>
+                                        <a class='hyper contenido' style='text-decoration:none' href='producto.php?id=$id'>".$mostrar['marca']." ".$mostrar['modelo']." ".$mostrar['calidad']."</a>
+                                        <br>
+                                        <a class='hyper contenido' style='text-decoration:none' href='producto.php?id=$id'>".$mostrar['categoria'].".</a>
+                                        <br>
+                                        <span class='agotado'>Producto agotado.</span>
+                                        <br>                                                                                                                   
+                                        </center>
+                                    </div>
                                 </div>
-                            </div>
-                    </div>";
+                        </div>";
             }
-       } 
+        }
     }
     $row = mysqli_num_rows($result); 
     if($row==0){
