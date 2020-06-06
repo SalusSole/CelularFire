@@ -13,7 +13,7 @@
    </header>
     <div class="container">
         <div>
-            <form action="php/envio.php" method="post">
+            <form action="compra.php" method="post">
                 <label for="">Código postal</label>
                 <br>
                 <input type="text"name="cp" class="form-control" placeholder="Código postal" required>
@@ -50,7 +50,7 @@
                 <br>
                 <input type="text"name="detalles" class="form-control" placeholder="">
                 <br>
-                <input hidden type="text"name="precio" value="<?php echo $_GET["precio"]?>">
+                <input hidden type="text"name="precio" value="<?php echo $_POST["precio"]?>">
                 <br>
                 <input type="submit" class="btn-lg btn-primary btn-block" value="Continuar">
                 <br>

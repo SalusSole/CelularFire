@@ -133,7 +133,10 @@
                 </div>             
             </div><br>
             <center>
-                <a class='btn orange' href='../envio.php?precio=$sum_menudeo'>Comprar ahora</a>
+                <form action='envio.php' method='post'>
+                    <input type='text' name='precio' value='$sum_menudeo' hidden>
+                    <input class='btn orange' type='submit' value='Comprar ahora'>
+                </form>
             </center>
             <br>
             ";
@@ -155,16 +158,17 @@
                 </div>             
             </div><br>
             <center>
-                <a class='btn orange' href='../envio.php?precio=$sum_mayoreo'>Comprar ahora</a>
+                <form action='envio.php' method='post'>
+                    <input type='text' name='precio' value='$sum_mayoreo' hidden>
+                    <input class='btn orange' type='submit' value='Comprar ahora'>
+                </form>
             </center>
             <br>
             ";
         }
     }
-        
-
-    
     ?>
+        
         
 
 <?php
