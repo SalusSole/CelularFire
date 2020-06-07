@@ -1,12 +1,35 @@
 <?php
 session_start();
+$id_user = $_SESSION['user_id'];
 include 'php/conexion.php';
 
 if($_GET){
   $id_compra = $_GET['id_compra'];
   $sql = "UPDATE compra SET status='Pagado' WHERE id_compra='$id_compra'";
   $conexion->query($sql);
-}
+
+  $xml = new DOMDocument("1.0", "utf-8");
+  $xml -> formatOutput = true;
+  $xml->load('php/cesta.xml');
+  
+  $nodoslista=$xml->getElementsBYTagName("productos");
+  $modificar=null;
+  
+  for($i=0;$i<$nodoslista->length; $i++){
+      $lista=$nodoslista->item($i)->childNodes;
+      
+          while (((string) $lista->item(13)->nodeValue)==$id_user){
+  
+              $lista->item(14)->nodeValue='Pagado';
+              $modificar=1;
+              $xml->save('php/cesta.xml');
+              break 1;
+              
+          } //echo "algo salio mal";
+              
+      
+  }
+  
 ?>
 
 <!DOCTYPE html>
@@ -30,5 +53,6 @@ if($_GET){
 </html>
 
 <?php
+}
 mysqli_close($conexion);
 ?>

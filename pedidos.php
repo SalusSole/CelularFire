@@ -22,7 +22,7 @@
             <table class="table table-striped table-bootstrap">
                 <thead class="thead-blue">
                     <tr>
-                        <th scope="col">ID Pedido</th>
+                        <th scope="col">Fecha pedido</th>
                         <th scope="col">Usuario</th>
                         <th scope="col">Estado de pago</th>
                     </tr>
@@ -37,10 +37,11 @@
                     $user = $datos['user'];
                     $correo = $datos['correo'];
                     $estado = $datos['status'];
+                    $fecha = $datos['fecha'];
                    
                 echo "
                     <tr>
-                        <th scope='row'>$id_compra</th>
+                        <td>$fecha</th>
                         <td><a class='link-pedido' href='info_compra.php?id=$id_compra'>$user</a></td>
                         <td><a class='link-pedido' href='info_compra.php?id=$id_compra'>$estado</a></td>
                     </tr>";

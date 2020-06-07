@@ -30,77 +30,81 @@
             $sum_mayoreo=0;
                 foreach ($cesta as $productos){//recorre el archivo xml
                     $id=$productos->id;//guarda el id de los nodos del archivo xml en la variable $id
+                    $status = $productos->status;
                         if($id_usuario==$productos->id_usuario){
-                            if($productos->eliminado==0){
-                                $cantidad=$productos->cantidad;
-                                $mayoreo=$productos->precio_mayoreo;
-                                $menudeo=$productos->precio_menudeo;
+                            if($status != 'Pagado'){
+                                if($productos->eliminado==0){
+                                    $cantidad=$productos->cantidad;
+                                    $mayoreo=$productos->precio_mayoreo;
+                                    $menudeo=$productos->precio_menudeo;
                                     $sum_menudeo+= $productos->total_menudeo;
                                     $sum_mayoreo+= $productos->total_mayoreo;
-                                
+                                }   
                             }
                         }
                     
                 }
                 foreach ($cesta as $productos){//recorre el archivo xml
-                    $id=$productos->id;//guarda el id de los nodos del archivo xml en la variable $id
+                    $id=$productos->id;
+                    $status = $productos->status;
                         if($id_usuario==$productos->id_usuario){
                             if($productos->eliminado==0){
-                                if ($sum_menudeo>=1500){
-                                    echo "
-                                    <div class='container'>             
-                                        <div class='contenedores'>
-                                            <div class='row text-left'>
-                                                <div class='col-sm-5 col-md-4'>
-                                                    <img class='img-fluid contenedores img-cesta' src='$productos->imagen' alt=''>
-                                                </div>
-                                                <div class='col-sm-7 col-md-8'>
-                                                    <span class='contenido'>$productos->marca $productos->modelo $productos->calidad $productos->categoria</span>
-                                                    <br>
-                                                    <del class='precio'>MXN$$productos->precio_menudeo.00</del><br>
-                                                    <span class='precio'>MXN$$productos->precio_mayoreo.00</span><br>
-                                                    <span class='contenido'>$productos->color</span><br>
-                                                    <span class='contenido'>Cantidad: $productos->cantidad</span>
-                                                    <br>
-                                                    <div class='btn-left'>
-                                                    <a class='hyper contenido' 'style='text-decoration:none' href='php/eliminar.php?id=".$productos->id."'><img src='img/iconos/icons/Delete.png' alt=''></a>
+                                if($status!='Pagado'){
+                                    if ($sum_menudeo>=1500){
+                                        echo "
+                                        <div class='container'>             
+                                            <div class='contenedores'>
+                                                <div class='row text-left'>
+                                                    <div class='col-sm-5 col-md-4'>
+                                                        <img class='img-fluid contenedores img-cesta' src='$productos->imagen' alt=''>
+                                                    </div>
+                                                    <div class='col-sm-7 col-md-8'>
+                                                        <span class='contenido'>$productos->marca $productos->modelo $productos->calidad $productos->categoria</span>
+                                                        <br>
+                                                        <del class='precio'>MXN$$productos->precio_menudeo.00</del><br>
+                                                        <span class='precio'>MXN$$productos->precio_mayoreo.00</span><br>
+                                                        <span class='contenido'>$productos->color</span><br>
+                                                        <span class='contenido'>Cantidad: $productos->cantidad</span>
+                                                        <br>
+                                                        <div class='btn-left'>
+                                                        <a class='hyper contenido' 'style='text-decoration:none' href='php/eliminar.php?id=".$productos->id."'><img src='img/iconos/icons/Delete.png' alt=''></a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
 
 
-                                        </div>             
-                                    </div><br>
-                                    ";
-                                }else{
-                                    echo "
-                                    <div class='container'>             
-                                        <div class='contenedores'>
-                                            <div class='row text-left'>
-                                                <div class='col-sm-5 col-md-4'>
-                                                    <img class='img-fluid contenedores img-cesta' src='$productos->imagen' alt=''>
-                                                </div>
-                                                <div class='col-sm-7 col-md-8'>
-                                                    <span class='contenido'>$productos->marca $productos->modelo $productos->calidad $productos->categoria</span>
-                                                    <br>
-                                                    <span class='precio'>MXN$$productos->precio_menudeo.00</span><br>
-                                                    <span class='contenido'>$productos->color</span><br>
-                                                    <span class='contenido'>Cantidad: $productos->cantidad</span>
-                                                    <br>
-                                                    <div class='btn-left'>
-                                                    <a class='hyper contenido' 'style='text-decoration:none' href='php/eliminar.php?id=".$productos->id."'><img src='img/iconos/icons/Delete.png' alt=''></a>
+                                            </div>             
+                                        </div><br>
+                                        ";
+                                    }else{
+                                        echo "
+                                        <div class='container'>             
+                                            <div class='contenedores'>
+                                                <div class='row text-left'>
+                                                    <div class='col-sm-5 col-md-4'>
+                                                        <img class='img-fluid contenedores img-cesta' src='$productos->imagen' alt=''>
+                                                    </div>
+                                                    <div class='col-sm-7 col-md-8'>
+                                                        <span class='contenido'>$productos->marca $productos->modelo $productos->calidad $productos->categoria</span>
+                                                        <br>
+                                                        <span class='precio'>MXN$$productos->precio_menudeo.00</span><br>
+                                                        <span class='contenido'>$productos->color</span><br>
+                                                        <span class='contenido'>Cantidad: $productos->cantidad</span>
+                                                        <br>
+                                                        <div class='btn-left'>
+                                                        <a class='hyper contenido' 'style='text-decoration:none' href='php/eliminar.php?id=".$productos->id."'><img src='img/iconos/icons/Delete.png' alt=''></a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
 
 
-                                        </div>             
-                                    </div><br>
-                                    ";
-                                }
-                                
+                                            </div>             
+                                        </div><br>
+                                        ";
+                                    }
+                                }   
                             }
                         }
                     
@@ -118,53 +122,56 @@
         </center>
         <?php
     }else{
-        if($sum_menudeo<1500){
-            echo "
-            <div class='container'>             
-                <div class='contenedores'>
-                    <div class='row'>
-                        <div class='col-sm-8 col-md-8'>
-                            <span class='container'>Total</span>
+        if($status != 'Pagado'){
+            if($sum_menudeo<1500){
+                echo "
+                <div class='container'>             
+                    <div class='contenedores'>
+                        <div class='row'>
+                            <div class='col-sm-8 col-md-8'>
+                                <span class='container'>Total</span>
+                            </div>
+                            <div class='col-sm-4 col-md-4'>
+                                <span>MXN$$sum_menudeo.00</span>
+                            </div>
                         </div>
-                        <div class='col-sm-4 col-md-4'>
-                            <span>MXN$$sum_menudeo.00</span>
+                    </div>             
+                </div><br>
+                <center>
+                    <form action='envio.php' method='post'>
+                        <input type='text' name='precio' value='$sum_menudeo' hidden>
+                        <input class='btn orange' type='submit' value='Comprar ahora'>
+                    </form>
+                </center>
+                <br>
+                ";
+            }else{
+                echo "
+                <div class='container'>             
+                    <div class='contenedores'>
+                        <div class='row'>
+                            <div class='col-sm-3 col-md-3'>
+                                <span class='container'>Total</span>
+                            </div>
+                            <div class='col-sm-4 col-md-4 text-center'>
+                                <del>MXN$$sum_menudeo.00</del>
+                            </div>
+                            <div class='col-sm-4 col-md-4 text-center'>
+                                <span>MXN$$sum_mayoreo.00</span>
+                            </div>
                         </div>
-                    </div>
-                </div>             
-            </div><br>
-            <center>
-                <form action='envio.php' method='post'>
-                    <input type='text' name='precio' value='$sum_menudeo' hidden>
-                    <input class='btn orange' type='submit' value='Comprar ahora'>
-                </form>
-            </center>
-            <br>
-            ";
-        }else{
-            echo "
-            <div class='container'>             
-                <div class='contenedores'>
-                    <div class='row'>
-                        <div class='col-sm-3 col-md-3'>
-                            <span class='container'>Total</span>
-                        </div>
-                        <div class='col-sm-4 col-md-4 text-center'>
-                            <del>MXN$$sum_menudeo.00</del>
-                        </div>
-                        <div class='col-sm-4 col-md-4 text-center'>
-                            <span>MXN$$sum_mayoreo.00</span>
-                        </div>
-                    </div>
-                </div>             
-            </div><br>
-            <center>
-                <form action='envio.php' method='post'>
-                    <input type='text' name='precio' value='$sum_mayoreo' hidden>
-                    <input class='btn orange' type='submit' value='Comprar ahora'>
-                </form>
-            </center>
-            <br>
-            ";
+                    </div>             
+                </div><br>
+                <center>
+                    <form action='envio.php' method='post'>
+                        <input type='text' name='precio' value='$sum_mayoreo' hidden>
+                        <input class='btn orange' type='submit' value='Comprar ahora'>
+                    </form>
+                </center>
+                <br>
+                ";
+            }
+    
         }
     }
     ?>

@@ -54,32 +54,33 @@ if($_POST){
         $sum_mayoreo=0;
           foreach ($cesta as $productos){//recorre el archivo xml
             $id=$productos->id;//guarda el id de los nodos del archivo xml en la variable $id
+            $status = $productos->status;
             if($user_id==$productos->id_usuario){
-              if($productos->eliminado==0){
-                $cantidad = $productos->cantidad;
-                $marca = $productos->marca;
-                $modelo = $productos->modelo;
-                $calidad = $productos->calidad;
-                $categoria = $productos->categoria;
-                $color = $productos->color;
-                $precio_menudeo = $productos->precio_menudeo;
-                $precio_mayoreo = $productos->precio_mayoreo;
+              if($status!='Pagado'){
+                if($productos->eliminado==0){
+                  $cantidad = $productos->cantidad;
+                  $marca = $productos->marca;
+                  $modelo = $productos->modelo;
+                  $calidad = $productos->calidad;
+                  $categoria = $productos->categoria;
+                  $color = $productos->color;
+                  $precio_menudeo = $productos->precio_menudeo;
+                  $precio_mayoreo = $productos->precio_mayoreo;
 
-                $sql = "INSERT INTO venta (id_compra, precio_menudeo, precio_mayoreo, cantidad, color, calidad, categoria, precio_total, marca, modelo) VALUES ('$compra_id','$precio_menudeo','$precio_mayoreo','$cantidad','$color','$calidad','$categoria','$_POST[precio]', '$marca', '$modelo' )";
-			
-                if (mysqli_query($conexion, $sql)) {
-                  $bandera2=1;
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
+                  $sql = "INSERT INTO venta (id_compra, precio_menudeo, precio_mayoreo, cantidad, color, calidad, categoria, precio_total, marca, modelo) VALUES ('$compra_id','$precio_menudeo','$precio_mayoreo','$cantidad','$color','$calidad','$categoria','$_POST[precio]', '$marca', '$modelo' )";
+        
+                  if (mysqli_query($conexion, $sql)) {
+                    $bandera2=1;
+                  } else {
+                      echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
+                  }  
                 }
-                  
               }
             }
           } 
-        } 
+      }
+      } 
 
-				
-			}
 			}else{
                 echo "nope";
             }
@@ -142,7 +143,7 @@ if($_POST){
         console.log(data);
 		var id_compra = <?php echo $compra_id ?>;
         //window.alert(id_compra);
-        window.location="paypal.php?id_compra="+id_compra;
+        window.location="pago.php?id_compra="+id_compra;
         //window.location="verificador.php?paymentToken="+data.paymentToken+"&paymentID="+data.paymentID;
       });
     }

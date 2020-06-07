@@ -30,6 +30,7 @@
             $menudeo=$mostrar['precio_menudeo'];
             $mayoreo=$mostrar['precio_mayoreo'];
             
+            
         }
     }
     
@@ -159,6 +160,9 @@ $id_elementos=$elem->count();
         $hoja -> appendChild($doc -> createTextNode($id_usuario));
         $rama -> appendChild($hoja);
 
+        $hoja = $doc -> createElement('status');
+        $hoja -> appendChild($doc -> createTextNode('Pendiente'));
+        $rama -> appendChild($hoja);
 
     $raiz -> appendChild($rama);
     $doc -> appendChild($raiz);
