@@ -4,7 +4,7 @@ include 'php/conexion.php';
 
 if($_GET){
   $id_compra = $_GET['id_compra'];
-  $sql = "UPDATE compra SET status='pagado' WHERE id_compra='$id_compra'";
+  $sql = "UPDATE compra SET status='Pagado' WHERE id_compra='$id_compra'";
   $conexion->query($sql);
 }
 ?>

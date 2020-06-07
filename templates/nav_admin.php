@@ -12,6 +12,10 @@
             <img class="icon" src="img/iconos/icons/Home.png" width="25em">
             <span class="font-nav ref1"></span>
         </a>
+        <a href="pedidos.php" class="nav-item nav-link">
+            <img class="icon" src="img/iconos/icons/pedidos.svg" width="33em">
+            <span class="font-nav ref8"></span>
+        </a>
         <a href="php/logout.php" class="nav-item nav-link">
             <img class="icon" src="img/iconos/icons/Logout.png" width="25em">
             <span class="font-nav ref5"></span>

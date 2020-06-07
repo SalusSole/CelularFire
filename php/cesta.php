@@ -63,7 +63,7 @@
     $el_xml = $xml->saveXML();
     echo htmlentities($el_xml);*/
 
-echo $marca;
+//echo $marca;
   
     /*$xml = new domDocument("1.0", "utf-8");
     $xml -> formatOutput = true;

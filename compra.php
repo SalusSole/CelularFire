@@ -1,10 +1,11 @@
 <?php
 session_start(); 
+$user_id = $_SESSION["user_id"];
 $bandera1=0;
 $bandera2=0;
 if($_POST){
 	$total=$_POST['precio'];
-	echo $total;
+	//echo $total;
 			include "php/conexion.php";
             
 			$found=false;
@@ -13,7 +14,17 @@ if($_POST){
 			while ($r=$query->fetch_array()) {
 				$found=true;
 				break;
-			}
+      }
+     
+      $sql_user = "select * from user";
+      $result = mysqli_query ($conexion, $sql_user);
+      while ($datos_user=mysqli_fetch_array($result)){
+        if($user_id==$datos_user['id']){
+          $nombre = $datos_user['fullname'];
+          $email = $datos_user['email'];
+        }
+      }
+
 			if($found){
 			//agrega los datos del envio a la base de datos	
             $sql = "INSERT INTO envio (fecha, codigo_postal, estado, municipio, colonia, calle, exterior, interior, numero, detalles) VALUES (NOW(),'$_POST[cp]','$_POST[estado]','$_POST[municipio]','$_POST[colonia]','$_POST[calle]','$_POST[exterior]','$_POST[interior]','$_POST[numero]','$_POST[detalles]')";
@@ -23,7 +34,7 @@ if($_POST){
             }
             if($query!=null){
 				//pasa a guardar los elememtos de la compra y la venta en la base de datos
-				$sql = "INSERT INTO compra (id_usuario, fecha, total, status) VALUES ('$_SESSION[user_id]',NOW(),'$_POST[precio]','pendiente')";
+				$sql = "INSERT INTO compra (id_usuario, fecha, total, status, user, correo) VALUES ('$_SESSION[user_id]',NOW(),'$_POST[precio]','pendiente', '$nombre', '$email')";
     
 				if (mysqli_query($conexion, $sql)) {
 					$compra_id = mysqli_insert_id($conexion);
@@ -33,14 +44,41 @@ if($_POST){
 				} else {
 					echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
 				}
+        //VENTA
+
+
+      if (!$cesta = simplexml_load_file('php/cesta.xml')) {//leer el archivo xml y guardarlo en $cesta y si no no lee manda mensaje de error
+        echo "Error algo salio mal";
+      }else{
+        $sum_menudeo=0;
+        $sum_mayoreo=0;
+          foreach ($cesta as $productos){//recorre el archivo xml
+            $id=$productos->id;//guarda el id de los nodos del archivo xml en la variable $id
+            if($user_id==$productos->id_usuario){
+              if($productos->eliminado==0){
+                $cantidad = $productos->cantidad;
+                $marca = $productos->marca;
+                $modelo = $productos->modelo;
+                $calidad = $productos->calidad;
+                $categoria = $productos->categoria;
+                $color = $productos->color;
+                $precio_menudeo = $productos->precio_menudeo;
+                $precio_mayoreo = $productos->precio_mayoreo;
+
+                $sql = "INSERT INTO venta (id_compra, precio_menudeo, precio_mayoreo, cantidad, color, calidad, categoria, precio_total, marca, modelo) VALUES ('$compra_id','$precio_menudeo','$precio_mayoreo','$cantidad','$color','$calidad','$categoria','$_POST[precio]', '$marca', '$modelo' )";
 			
-				$sql = "INSERT INTO venta (id_compra, id_producto, precio_unitario, cantidad, descargado, color, calidad, categoria, precio_total) VALUES ('1','1','200','2','0','blanco','','display','$_POST[precio]' )";
-			
-				if (mysqli_query($conexion, $sql)) {
-					$bandera2=1;
-				} else {
-					  echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
-				}
+                if (mysqli_query($conexion, $sql)) {
+                  $bandera2=1;
+                } else {
+                    echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
+                }
+                  
+              }
+            }
+          } 
+        } 
+
+				
 			}
 			}else{
                 echo "nope";
@@ -55,12 +93,17 @@ if($_POST){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <?php include 'templates/meta_link.html' ?>
 </head>
 <body>
+
+<div class="container text-center text-compra-exitosa">
+    <span>El total de su compra es: $<b><?php echo $total ?></b> </span>
+    <br>
+    <br>
 <div id="paypal-button"></div>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<div id="paypal-button"></div>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+</div>
 <script>
   paypal.Button.render({
     // Configure environment
