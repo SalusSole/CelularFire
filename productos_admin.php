@@ -17,6 +17,10 @@
     include 'templates/nav_admin.php';
 ?>
 <br>
+    <div>
+        <h5 class="text-center titulos">EDITAR PRODUCTOS</h5>
+    </div>
+<br>
 <div class="container">
 <div class="row">
             

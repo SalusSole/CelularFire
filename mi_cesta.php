@@ -112,13 +112,13 @@
         }
         ?>
         <?php
-    if ($sum_menudeo==null){
+    if ($sum_menudeo==null || $status!='Pendiente'){
         ?>
         <center>
             <span class='cesta'> Parece que aun no ha agregado nada a la canasta...<span>
             <br>
             <br>
-            <a class="btn btn-info" href="index.php">Compra ahora!</a>
+            <a class="btn btn-info" href="index.php">¡Compra ahora!</a>
         </center>
         <?php
     }else{

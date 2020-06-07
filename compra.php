@@ -35,7 +35,7 @@ if($_POST){
             }
             if($query!=null){
 				//pasa a guardar los elememtos de la compra y la venta en la base de datos
-				$sql = "INSERT INTO compra (id_usuario, fecha, total, status, user, correo) VALUES ('$_SESSION[user_id]',NOW(),'$_POST[precio]','pendiente', '$nombre', '$email')";
+				$sql = "INSERT INTO compra (id_usuario, fecha, total, status, user, correo) VALUES ('$_SESSION[user_id]',NOW(),'$_POST[precio]','Pendiente', '$nombre', '$email')";
     
 				if (mysqli_query($conexion, $sql)) {
 					$compra_id = mysqli_insert_id($conexion);
