@@ -29,6 +29,7 @@ if($_POST){
 			//agrega los datos del envio a la base de datos	
             $sql = "INSERT INTO envio (fecha, codigo_postal, estado, municipio, colonia, calle, exterior, interior, numero, detalles) VALUES (NOW(),'$_POST[cp]','$_POST[estado]','$_POST[municipio]','$_POST[colonia]','$_POST[calle]','$_POST[exterior]','$_POST[interior]','$_POST[numero]','$_POST[detalles]')";
             if (mysqli_query($conexion, $sql)) {
+              $envio_id = mysqli_insert_id($conexion);
             } else {
                   echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
             }
@@ -67,7 +68,7 @@ if($_POST){
                   $precio_menudeo = $productos->precio_menudeo;
                   $precio_mayoreo = $productos->precio_mayoreo;
 
-                  $sql = "INSERT INTO venta (id_compra, precio_menudeo, precio_mayoreo, cantidad, color, calidad, categoria, precio_total, marca, modelo) VALUES ('$compra_id','$precio_menudeo','$precio_mayoreo','$cantidad','$color','$calidad','$categoria','$_POST[precio]', '$marca', '$modelo' )";
+                  $sql = "INSERT INTO venta (id_envio, id_compra, precio_menudeo, precio_mayoreo, cantidad, color, calidad, categoria, precio_total, marca, modelo) VALUES ('$envio_id','$compra_id','$precio_menudeo','$precio_mayoreo','$cantidad','$color','$calidad','$categoria','$_POST[precio]', '$marca', '$modelo' )";
         
                   if (mysqli_query($conexion, $sql)) {
                     $bandera2=1;

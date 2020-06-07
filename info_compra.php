@@ -40,7 +40,9 @@ if($_GET){
                 $sql = "select * from venta";
                 $result = mysqli_query ($conexion, $sql);
                 while ($datos=mysqli_fetch_array($result)){
-                    if ($_GET['id']==$datos['id_compra']){
+                    $id_compra = $datos['id_compra'];
+                    if ($_GET['id']==$id_compra){
+                        $id_envio = $datos['id_envio'];
                         $id_venta = $datos['id_venta'];
                         $marca = $datos['marca'];
                         $modelo = $datos['modelo'];
@@ -91,6 +93,64 @@ if($_GET){
         } 
         ?>
 </div>
+<br>
+    <div>
+        <h5 class="text-center titulos">INFORMACIÓN DE ENVÍO</h5>
+    </div>
+<br>
+
+<div class="container">
+        <div>
+            <table class="table table-striped table-bootstrap">
+                <thead class="thead-blue">
+                    <tr>
+                        <th scope="col">Código Postal</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Municipio</th>
+                        <th scope="col">Colonia</th>
+                        <th scope="col">Calle</th>
+                        <th scope="col">N° Exterior</th>
+                        <th scope="col">N° Interior</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                $sql = "select * from envio";
+                $result = mysqli_query ($conexion, $sql);
+                while ($datos=mysqli_fetch_array($result)){
+                    if ($id_envio==$datos['id_envio']){
+                        $codigo_postal = $datos['codigo_postal'];
+                        $estado = $datos['estado'];
+                        $municipio = $datos['municipio'];
+                        $colonia = $datos['colonia'];
+                        $calle = $datos['calle'];
+                        $n_exterior = $datos['exterior'];
+                        $n_interior = $datos['interior'];
+                        $telefono = $datos['numero'];
+                        $detalles = $datos['detalles'];
+
+                        echo "
+                        <tr>
+                            <td>$codigo_postal</td>
+                            <td>$estado</td>
+                            <td>$municipio</td>
+                            <td>$colonia</td>
+                            <td>$calle</td>
+                            <td>$n_exterior</td>
+                            <td>$n_interior</td>
+                            <td>$telefono</td>
+                            <td>$detalles</td>
+                        </tr>";
+                    }
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 <?php 
 } 
 if ($_POST){
