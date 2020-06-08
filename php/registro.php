@@ -23,9 +23,9 @@ if(!empty($_POST)){
 			if($found){
 				print "<script>alert(\"Nombre de usuario o email ya estan registrados.\");window.location='../registro.php';</script>";
 			}else{
-            $sql = "INSERT INTO user (username, fullname, email, password, estado_cuenta) VALUES ('$_POST[username]', '$_POST[fullname]', '$_POST[email]', '$_POST[password]', '0')";
+            $sql = "INSERT INTO user (username, fullname, email, password, estado_cuenta) VALUES ('$_POST[username]', '$_POST[fullname]', '$_POST[email]', '$_POST[password]', '1')";
             if (mysqli_query($conexion, $sql)) {
-                echo "New record created successfully";
+                //echo "New record created successfully";
                 
                 //en caso de que se registre todo correctamente manda correo de verificación
                 
@@ -112,7 +112,7 @@ if(!empty($_POST)){
                 $headers .= 'From:' . $from. "\r\n";
 
                 mail($to,$subject,$message, $headers);
-                echo "The email message was sent.";
+                //echo "The email message was sent.";
 
 
             } else {

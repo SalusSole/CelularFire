@@ -210,6 +210,7 @@
                                                                 <script>
                                                                 function verificar() {
                                                                 alert("Debe de verificar su cuenta por medio del correo electronico que ingresó para poder comprar. Se le envió un correo de verificaccion a su cuenta e email.");
+                                                                window.location="producto.php?id=<?php echo $id ?>";
                                                                 }
                                                                 </script>
                                                                 <?php
