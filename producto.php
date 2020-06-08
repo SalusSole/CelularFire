@@ -11,17 +11,7 @@
         echo "algo esta mal";
         }
 
-    
-    /*$sql= "SELECT * FROM productos";
-    $result=mysqli_query($conexion,$sql);
-
-    while($mostrar=mysqli_fetch_array($result)){
-        
-        
-        //if($mostrar['id_producto']==$id){//Encontra la fila donde esta el id buscado.
-            //echo $mostrar['marca'];  //Muestra algún elemento de la fila encontrada
-        //}
-    }*/
+   
 ?>
 
 
@@ -35,61 +25,9 @@
     ?>
     
     <title>Celular Fire | Tu compra</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-<!--
-<header>
-    <div class="top">
-            <div class=" container" >
-
-
-                <div class="text-center">
-
-                    <a href="index.php"><img class="img-fluid logo" width="350em" src="img/home/cf.png" alt="Celular Fire"/></a>
-
-                </div>
-
-            </div>
-    </div>
-    <div class="container">
-       <div class="row">
-            <div class="col-sm-4 col-md-4">
-                <div class="text-center top bottom ">
-                    <nav class="nav blue nav_productos" style="background: #ff9344">
-                        <a href="index.php" class="nav-item nav-link text-center">
-                            <img class="icon" src="img/iconos/icons/Back.png" width="25em">
-                            <span class="hidden font-nav"></span>
-                        </a>
-                        <span class="nav-indicator"></span>  
-                    </nav>
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-4">
-                <div class="text-center top bottom ">
-                    <nav class="nav blue nav_productos" style="background: #155264">
-                        <a href="index.php" class="nav-item nav-link">
-                            <img class="icon" src="img/iconos/icons/Back.png" width="25em">
-                            <span class="hidden font-nav"></span>
-                        </a>
-                        <span class="nav-indicator"></span>  
-                    </nav>
-                </div>
-            </div>  
-            <div class="col-sm-4 col-md-4">
-                <div class="text-center top bottom ">
-                    <nav class="nav blue nav_productos" style="background: #155264">
-                        <a href="index.php" class="nav-item nav-link">
-                            <img class="icon" src="img/iconos/icons/Back.png" width="25em">
-                            <span class="hidden font-nav"></span>
-                        </a>
-                        <span class="nav-indicator"></span>  
-                    </nav>
-                </div>
-            </div>             
-        </div>        
-    </div>
-</header>
--->
 <?php
     include 'templates/nav.php';
     $sql= "SELECT * FROM productos";
@@ -105,6 +43,7 @@
         $blanco=$mostrar['blanco'];
         $azul=$mostrar['azul'];
         $color_dispo=$mostrar['colores_disponibles'];
+        
 
     ?>
     
@@ -164,10 +103,14 @@
                                         <form class="escondido" id="Form" name="formulario"method="get"action="php/cesta.php">
                                         <span class="seleccion">Selecciona un color:</span>
                                         <br>
-                                                <select class='btn btn-secondary dropdown-toggle list' type='button' name='color' required>
-                                                   <option value=""> Color </option>
+
                                         
+                                                <select id="selColor" name="color" class='btn btn-secondary dropdown-toggle list' type='button' required>
+                                                    <option value="" id="Color" selected> Color </option>
+
                                         <?php
+
+
                                             for ($i = 1; ; $i++) {
                                                 if ($i == $color_dispo+1) {
                                                 }
@@ -214,18 +157,35 @@
                                         <br>
                                         <br>
                                         <span class="seleccion">Selecciona una cantidad:</span><br>
-                                        <select class="btn btn-secondary dropdown-toggle list" type="button" name="cantidad" required>
-                                           <option selected value=""> Cantidad </option>
-                                                <option value='1'>1</option>
-                                                <option value='2'>2</option>
-                                                <option value='3'>3</option>
-                                                <option value='4'>4</option>
-                                                <option value='5'>5</option>
-                                                <option value='6'>6</option>
-                                                <option value='7'>7</option>
-                                                <option value='8'>8</option>
-                                                <option value='9'>9</option>
-                                                <option value='10'>10</option>
+                                        <select name="cantidad" id="selNegro" class="btn btn-secondary dropdown-toggle list" type="button" hidden>
+                                            <option value="">Cantidad</option>
+                                            <?php
+                                            $increment1=1;
+                                            while ($i < $negro) {
+                                                $i=$increment1++;
+                                                echo "<option value='$i'>$i Negros</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                        <select name="cantidad" id="selBlanco" class="btn btn-secondary dropdown-toggle list" type="button" hidden>
+                                            <option value="">Cantidad</option>
+                                            <?php
+                                            $increment2=1;
+                                            while ($ii < $blanco) {
+                                                $ii=$increment2++;
+                                                echo "<option value='$ii'>$ii Blancos</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                        <select name="cantidad" id="selAzul" class="btn btn-secondary dropdown-toggle list" type="button" hidden>
+                                            <option value="">Cantidad</option>
+                                        <?php
+                                            $increment3=1;
+                                            while ($iii < $azul) {
+                                                $iii=$increment3++;
+                                                echo "<option value='$iii'>$iii Azules</option>";
+                                            }
+                                            ?>
                                         </select>
                                         
                                             <br>
@@ -316,24 +276,42 @@
   </div>
 </div>
 
-
-<!--
-<form class="demo escondido" method="get"action="php/ces.php">
-<div >
-  <input  type="radio" name="color" id="m2" value="0">
-  <label  for="m2"><img class="img-radio" src='img/iconos/icons/0.png' alt='negro'></label>
-  
-  <input type="radio" name="color" id="h2" value="1">  
-  <label for="h2"><img class="img-radio" src='img/iconos/icons/1.png' alt='negro'></label>
-  <input class='btn btn-orange' type="submit" value="Añadir a la cesta"/>
-</div>
-</form>
--->
-  
-</div>
 <?php
 include 'templates/footer.php';
 ?>
+<script>
+    $(document).ready(function () {
+        setInterval(function () {
+
+            var color = $('#selColor');
+            if (color.val() === 'Negro') {
+                document.getElementById("selNegro").hidden = false;
+                document.getElementById("selBlanco").hidden = true;
+                document.getElementById("selAzul").hidden = true;
+
+                // document.getElementById("selNegro").required = true;
+                // document.getElementById("selBlanco").required = false;
+                // document.getElementById("selAzul").required = false;
+            }if(color.val() === 'Blanco'){
+                document.getElementById("selNegro").hidden = true;
+                document.getElementById("selBlanco").hidden = false;
+                document.getElementById("selAzul").hidden = true;
+
+                // document.getElementById("selNegro").required = false;
+                // document.getElementById("selBlanco").required = true;
+                // document.getElementById("selAzul").required = false;
+            }if(color.val() === 'Azul'){
+                document.getElementById("selNegro").hidden = true;
+                document.getElementById("selBlanco").hidden = true;
+                document.getElementById("selAzul").hidden = false;
+
+                // document.getElementById("selNegro").required = false;
+                // document.getElementById("selBlanco").required = false;
+                // document.getElementById("selAzul").required = true;
+            }
+        },0);
+    });
+</script>
 <script src="script.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/popper.min.js"></script>

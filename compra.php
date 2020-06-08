@@ -67,8 +67,9 @@ if($_POST){
                   $color = $productos->color;
                   $precio_menudeo = $productos->precio_menudeo;
                   $precio_mayoreo = $productos->precio_mayoreo;
+                  $id_producto = $productos->id_producto;
 
-                  $sql = "INSERT INTO venta (id_envio, id_compra, precio_menudeo, precio_mayoreo, cantidad, color, calidad, categoria, precio_total, marca, modelo) VALUES ('$envio_id','$compra_id','$precio_menudeo','$precio_mayoreo','$cantidad','$color','$calidad','$categoria','$_POST[precio]', '$marca', '$modelo' )";
+                  $sql = "INSERT INTO venta (id_producto, id_envio, id_compra, precio_menudeo, precio_mayoreo, cantidad, color, calidad, categoria, precio_total, marca, modelo) VALUES ('$id_producto','$envio_id','$compra_id','$precio_menudeo','$precio_mayoreo','$cantidad','$color','$calidad','$categoria','$_POST[precio]', '$marca', '$modelo' )";
         
                   if (mysqli_query($conexion, $sql)) {
                     $bandera2=1;

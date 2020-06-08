@@ -22,6 +22,7 @@
         
         if($mostrar['id_producto']==$id){//Encontra la fila donde esta el id buscado.
             //echo $mostrar['marca'];  //Muestra algún elemento de la fila encontrada
+            $id_producto=$mostrar['id_producto'];
             $marca=$mostrar['marca'];
             $modelo=$mostrar['modelo'];
             $calidad=$mostrar['calidad'];
@@ -162,6 +163,10 @@ $id_elementos=$elem->count();
 
         $hoja = $doc -> createElement('status');
         $hoja -> appendChild($doc -> createTextNode('Pendiente'));
+        $rama -> appendChild($hoja);
+
+        $hoja = $doc -> createElement('id_producto');
+        $hoja -> appendChild($doc -> createTextNode($id_producto));
         $rama -> appendChild($hoja);
 
     $raiz -> appendChild($rama);
