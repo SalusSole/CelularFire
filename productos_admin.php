@@ -25,7 +25,7 @@
                 <h5 class="text-center titulos">BUSCAR PRODUCTOS</h5>
             </div>
             <div class="text-center search-container">
-                <form method="GET" action="search.php">
+                <form method="GET" action="search_admin.php">
                     <input class="search" type="text" placeholder="Buscar..." name="palabra" required>
                     <input type="image" value="Buscar" name="buscar" src="img/iconos/icons/search.png" width="23px">
                 </form>
