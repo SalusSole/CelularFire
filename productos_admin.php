@@ -17,12 +17,28 @@
     include 'templates/nav_admin.php';
 ?>
 <br>
-    <div>
-        <h5 class="text-center titulos">EDITAR PRODUCTOS</h5>
-    </div>
-<br>
 <div class="container">
-<div class="row">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-4">
+            <div>
+                <h5 class="text-center titulos">BUSCAR PRODUCTOS</h5>
+            </div>
+            <div class="text-center search-container">
+                <form method="GET" action="search.php">
+                    <input class="search" type="text" placeholder="Buscar..." name="palabra" required>
+                    <input type="image" value="Buscar" name="buscar" src="img/iconos/icons/search.png" width="23px">
+                </form>
+            </div>
+            <br><br>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+            <div>
+                <h5 class="text-center titulos">EDITAR PRODUCTOS</h5>
+            </div>
+            <div class="row">
+<br>
+
+
             
 <?php
     $sql= "SELECT * FROM productos";
@@ -51,6 +67,7 @@
                 </div>';
     }
             ?>
+    </div>
     </div>
     </div>
 </body>

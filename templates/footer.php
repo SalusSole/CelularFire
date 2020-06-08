@@ -14,8 +14,8 @@
                 <div class="col-4">
                     <strong class="text-center">Siguenos en</strong>
                     <br>
-                    <a href="https://www.facebook.com/CelularFire/"><img class="img-fluid" width="65em" src="img/iconos/icons/facebook.png" alt="Facebook"></a>
-                    <a href="https://instagram.com/celu430?igshid=17gj2z8xgxqhm"><img class="img-fluid" width="65px" src="img/iconos/icons/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/CelularFire/"><img class="img-fluid" width="50em" src="img/iconos/icons/facebook.png" alt="Facebook"></a>
+                    <a href="https://instagram.com/celu430?igshid=17gj2z8xgxqhm"><img class="img-fluid" width="50px" src="img/iconos/icons/instagram.png" alt="Instagram"></a>
                 </div>  
             </div>
             <div class="row">
