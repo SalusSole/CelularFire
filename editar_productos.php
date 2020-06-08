@@ -111,17 +111,7 @@
                                                     <label>Negro: &nbsp;</label>
                                                 </div>
                                                 <div class="col-8">
-                                                    <select class="btn btn-secondary dropdown-toggle list" type="" name="negro" required>
-                                                       <option selected value=""> Cantidad disponible </option>
-                                                            <option value='0'>0</option>
-                                                            <option value='1'>1</option>
-                                                            <option value='2'>2</option>
-                                                            <option value='3'>3</option>
-                                                            <option value='4'>4</option>
-                                                            <option value='5'>5</option>
-                                                            <option value='6'>6</option>
-                                                            <option value='7'>7</option>
-                                                    </select>
+                                                    <input class="btn-secondary" type="number" name="negro" max="200" min="0" size="4">
                                                 </div>
                                             </div>
                                             <br>
@@ -130,17 +120,7 @@
                                                     <label>Blanco: &nbsp;</label>
                                                 </div>
                                                 <div class="col-8">
-                                                    <select class="btn btn-secondary dropdown-toggle list" type="" name="blanco" required>
-                                                       <option selected value=""> Cantidad disponible </option>
-                                                            <option value='0'>0</option>
-                                                            <option value='1'>1</option>
-                                                            <option value='2'>2</option>
-                                                            <option value='3'>3</option>
-                                                            <option value='4'>4</option>
-                                                            <option value='5'>5</option>
-                                                            <option value='6'>6</option>
-                                                            <option value='7'>7</option>
-                                                    </select>
+                                                    <input class="btn-secondary" type="number" name="blanco" max="200" min="0" size="4">
                                                 </div>
                                             </div>
                                             <br>
@@ -149,17 +129,7 @@
                                                     <label>Azul: &nbsp;</label>
                                                 </div>
                                                 <div class="col-8">
-                                                    <select class="btn btn-secondary dropdown-toggle list" type="" name="azul" required>
-                                                       <option selected value=""> Cantidad disponible </option>
-                                                            <option value='0'>0</option>
-                                                            <option value='1'>1</option>
-                                                            <option value='2'>2</option>
-                                                            <option value='3'>3</option>
-                                                            <option value='4'>4</option>
-                                                            <option value='5'>5</option>
-                                                            <option value='6'>6</option>
-                                                            <option value='7'>7</option>
-                                                    </select>
+                                                    <input class="btn-secondary" type="number" name="azul" max="200" min="0" size="4">
                                                 </div>
                                             </div>
                                             <br>
