@@ -35,62 +35,6 @@
         }
     }
     
-    //$canasta[] = array('id'=>$id_compra, 'marca'=>$marca, 'modelo'=>$modelo, 'calidad'=>$calidad, 'categoria'=>$categoria, 'cantidad'=>$cantidad, 'color'=>$color);
-
-    //$json_string = json_encode($canasta);
-    //echo $json_string;
-
-    //$file = 'canasta.json';
-    //file_put_contents($file, $json_string);
-    
-    
-    //$xml=simplexml_load_file("cesta.xml");
-    //print_r($xml);
-   
-    /*$xml = new DomDocument('1.0', 'UTF-8');
-
-    $raiz = $xml->createElement('raiz');
-    $raiz = $xml->appendChild($raiz);
-
-    $nodo = $xml->createElement('libro');
-    $nodo = $raiz->appendChild($nodo);
-
-    $subnodo = $xml->createElement('item','texto dentro del item');
-    $subnodo = $nodo->appendChild($subnodo);   
-
-    $xml->formatOutput = true;
-    $xml->saveXML();
-    $xml->save('cesta.xml');
-
-    $el_xml = $xml->saveXML();
-    echo htmlentities($el_xml);*/
-
-//echo $marca;
-  
-    /*$xml = new domDocument("1.0", "utf-8");
-    $xml -> formatOutput = true;
-    $xml -> load("cesta.xml");
- 
-    $cesta_xml = $xml->createElement('cesta');
-    $cesta_xml = $xml->appendChild($cesta_xml);
- 
-    $producto_xml = $xml->createElement('producto');
-    $producto_xml = $cesta_xml->appendChild($producto_xml);
-     
-    // Agregar un atributo
-    //$producto->setAttribute('seccion', 'favoritos');
- 
-    $marca_xml = $xml->createElement('marca_xml', $marca);
-    $marca_xml = $producto_xml->appendChild($marca_xml);
- 
-    $xml->formatOutput = true;
-    $mostrar_xml = $xml->saveXML();
-    $xml->save('cesta.xml');
- 
-    //Mostramos el XML puro
-    echo "<p><b>El XML ha sido creado.... Mostrando en texto plano:</b></p>".
-         htmlentities($mostrar_xml)."
-<hr>";*/
 
 $doc = new domDocument("1.0", "utf-8");
 $doc -> formatOutput = true;

@@ -289,25 +289,25 @@ include 'templates/footer.php';
                 document.getElementById("selBlanco").hidden = true;
                 document.getElementById("selAzul").hidden = true;
 
-                // document.getElementById("selNegro").required = true;
-                // document.getElementById("selBlanco").required = false;
-                // document.getElementById("selAzul").required = false;
+                document.getElementById("selNegro").disabled = false;
+                document.getElementById("selBlanco").disabled = true;
+                document.getElementById("selAzul").disabled = true;
             }if(color.val() === 'Blanco'){
                 document.getElementById("selNegro").hidden = true;
                 document.getElementById("selBlanco").hidden = false;
                 document.getElementById("selAzul").hidden = true;
 
-                // document.getElementById("selNegro").required = false;
-                // document.getElementById("selBlanco").required = true;
-                // document.getElementById("selAzul").required = false;
+                document.getElementById("selNegro").disabled = true;
+                document.getElementById("selBlanco").disabled = false;
+                document.getElementById("selAzul").disabled = true;
             }if(color.val() === 'Azul'){
                 document.getElementById("selNegro").hidden = true;
                 document.getElementById("selBlanco").hidden = true;
                 document.getElementById("selAzul").hidden = false;
 
-                // document.getElementById("selNegro").required = false;
-                // document.getElementById("selBlanco").required = false;
-                // document.getElementById("selAzul").required = true;
+                document.getElementById("selNegro").disabled = true;
+                document.getElementById("selBlanco").disabled = true;
+                document.getElementById("selAzul").disabled = false;
             }
         },0);
     });
