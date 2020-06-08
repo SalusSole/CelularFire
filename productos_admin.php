@@ -42,10 +42,14 @@
 
             
 <?php
+if(!$_GET){
+    echo "<script> window.location='productos_admin.php?page=1'; </script>";
+}
     $sql= "SELECT * FROM productos";
     $result=mysqli_query($conexion,$sql);
 
     while($mostrar=mysqli_fetch_array($result)){
+        if($mostrar['id_producto']>=$inicio && $mostrar['id_producto']<=$final){
     
         $id=$mostrar['id_producto'];
         $num_foto=$mostrar['numero_foto_uno'];
@@ -66,6 +70,8 @@
                             </div>
                         </div>
                 </div>';
+    
+        }
     }
             ?>
     </div>
@@ -82,7 +88,7 @@
             if ($_GET['page']>1){
             ?>
                 <li class="page-item">
-                <a class="page-link" href="index.php?page=<?php echo $_GET['page']-1 ?>" aria-label="Previous">
+                <a class="page-link" href="productos_admin.php?page=<?php echo $_GET['page']-1 ?>" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                     <span class="sr-only">Previous</span>
                 </a>
@@ -93,7 +99,7 @@
 
             <?php for($i=0;$i<$pages;$i++):?>
                 <li class='page-item <?php echo $_GET['page']==$i+1 ? 'active' : '' ?>'>
-                    <a class='page-link' href='index.php?page=<?php echo $i+1 ?>'>
+                    <a class='page-link' href='productos_admin.php?page=<?php echo $i+1 ?>'>
                         <?php echo $i+1 ?>
                     </a>
                 </li>
@@ -103,7 +109,7 @@
             if ($_GET['page']<$pages){
             ?>
                 <li class="page-item">
-                <a class="page-link" href="index.php?page=<?php echo $_GET['page']+1 ?>" aria-label="Next">
+                <a class="page-link" href="productos_admin.php?page=<?php echo $_GET['page']+1 ?>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                 </a>
