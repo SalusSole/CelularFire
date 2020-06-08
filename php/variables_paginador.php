@@ -2,7 +2,7 @@
 $sql= "SELECT * FROM productos";
 $result=mysqli_query($conexion,$sql);
 $row = mysqli_num_rows($result); 
-$article_page = 2;
+$article_page = 10;
 $pages = $row/$article_page;
 $pages = ceil($pages);
 $pagina_actual = $_GET['page'];

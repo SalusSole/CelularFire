@@ -23,65 +23,6 @@
 
 <div class="container">
     <div class="row">
-        <!-- <div class="col-sm-12 col-md-3 col-lg-4">
-            <div>
-                <h5 class="text-center titulos">CATEGORÍAS</h5>
-            </div>
-            <div class="">
-                <div class="contenedores" >
-                    <div class="">
-                        <a class="dropdown-item" href="#">Displays</a>
-                    </div>
-                    <div class="">
-                        <a class="dropdown-item" href="#">Touch</a>
-                    </div>
-                    <div class="">
-                        <a class="dropdown-item" href="#">Flexores</a>
-                    </div>
-                    <div class="">
-                        <a class="dropdown-item" href="#">Baterias</a>
-                    </div>
-                </div>
-            </div>
-            <br><br>
-            <div>
-                <h5 class="text-center titulos">MARCAS</h5>
-            </div>
-            <div class="">
-                <div class="contenedores">
-                    <div class="">
-                        <a class="dropdown-item" href="#">Samsung</a>
-                    </div>
-                    <div class="">
-                        <a class="dropdown-item" href="#">Motorola</a>
-                    </div>
-                    <div class="">
-                        <a class="dropdown-item" href="#">Apple</a>
-                    </div>
-                    <div class="">
-                        <a class="dropdown-item" href="#">Huawei</a>
-                    </div>
-                    <div class="">
-                        <a class="dropdown-item" href="#">Sony</a>
-                    </div>
-                    <div class="">
-                        <a class="dropdown-item" href="#">Xiaomi</a>
-                    </div>
-                </div>
-            </div>
-            <br><br>
-        </div> -->
-        <!-- <div class="col-sm-12 col-md-3 col-lg-4">
-            <div>
-                <h5 class="text-center titulos">BUSCAR PRODUCTOS</h5>
-            </div>
-            <div>
-                <form method="POST" action="search.php" onSubmit="return validarForm(this)">
-                    <input type="text" placeholder="Buscar usuario" name="palabra">
-                    <input type="submit" value="Buscar" name="buscar">
-                </form>
-            <div>
-        </div> -->
         <div class="col-sm-12 col-md-12 col-lg-4">
             <div>
                 <h5 class="text-center titulos">BUSCAR PRODUCTOS</h5>
@@ -168,7 +109,7 @@
 <br><br>
 <div class="paginador">
 <!-- Paginador con bootstrap  -->
-<?php if($row>=2): ?>
+<?php if($row>=10): ?>
     <div class="">
         <div aria-label="Page navigation example">
         <ul class="pagination">
