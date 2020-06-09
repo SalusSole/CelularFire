@@ -14,16 +14,17 @@ if(!empty($_POST)){
                     $sql = "UPDATE productos SET disponibilidad = '$_POST[disponibilidad]', negro = '$_POST[negro]', blanco ='$_POST[blanco]', azul = '$_POST[azul]', precio_menudeo = '$_POST[menudeo]', precio_mayoreo = '$_POST[mayoreo]' WHERE id_producto = '$_POST[id]'";
                     
                     
-                    //$sql = "INSERT INTO productos (disponibilidad, negro, blanco, azul, precio_menudeo, precio_mayoreo) VALUES ('$_POST[disponibilidad]', '$_POST[negro]', '$_POST[blanco]', '$_POST[azul]', '$_POST[menudeo]', '$_POST[mayoreo]')";
-                    
-                    
                     if (mysqli_query($conexion, $sql)) {
-                          echo "New record created successfully";
+                          //echo "New record created successfully";
+                          ?>
+                            <script>
+                                window.location="../productos_admin.php";
+                            </script>  
+                          <?php
                     } else {
                           echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
                     }
                 
-				//print "<script>alert(\"Nombre de usuario o email ya estan registrados.\");window.location='../registro.php';</script>";
 			     }
             }
             
