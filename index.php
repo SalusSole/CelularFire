@@ -24,16 +24,39 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-4">
-            <div>
-                <h5 class="text-center titulos">BUSCAR PRODUCTOS</h5>
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <h5 class="text-center titulos">BUSCAR PRODUCTOS</h5>
+                    </div>
+                    <div class="text-center search-container">
+                        <form method="GET" action="search.php">
+                            <input class="search" type="text" placeholder="Buscar..." name="palabra" required>
+                            <input type="image" value="Buscar" name="buscar" src="img/iconos/icons/search.png" width="23px">
+                        </form>
+                    </div>
+                    <br><br>
+                </div>
+                <div class="col-12">
+                    <div>
+                        <h5 class="text-center titulos">PROMOCIONES</h5>
+                    </div>
+                    <div class="text-center">
+                    <?php
+                        $sql = "select * from promociones";
+                        $result = mysqli_query ($conexion, $sql);
+                        while ($datos=mysqli_fetch_array($result)){
+                            if($datos['activo']==1){
+                                ?>
+                                    <img width="80%" class="img-fluid" src="<?php echo $datos['ruta'] ?>" alt="">
+                                <?php
+                            }
+                        }
+                    ?>
+                    </div>
+                    <br><br>
+                </div>
             </div>
-            <div class="text-center search-container">
-                <form method="GET" action="search.php">
-                    <input class="search" type="text" placeholder="Buscar..." name="palabra" required>
-                    <input type="image" value="Buscar" name="buscar" src="img/iconos/icons/search.png" width="23px">
-                </form>
-            </div>
-            <br><br>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
             <div>

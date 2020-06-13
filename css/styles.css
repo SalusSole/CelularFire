@@ -162,7 +162,7 @@ footer {
 .ref7::before {
   font-weight: negrita;
     color: aliceblue;
-  content: "Logout";
+  content: "Publicidad";
 }
 .ref8::before {
   font-weight: negrita;
@@ -387,4 +387,8 @@ color: #fff;
 .link-pedido{
   text-decoration: none;
   color: black;
+}
+.banner{
+  border: solid black 1px;
+  border-radius: 20px;
 }

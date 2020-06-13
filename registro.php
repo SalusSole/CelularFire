@@ -36,10 +36,10 @@
 		    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirmar Contrase&ntilde;a">
 		  </div>
 		  <button class="btn orange" type="submit" class="btn btn-default">Registrar</button>
-		  <br><br><span>&nbsp; Usar Google para autocompletar:</span>
+		  <!-- <br><br><span>&nbsp; Usar Google para autocompletar:</span>
            <br>
            <br>
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
 		</form>
 		</div>
 		</div>
