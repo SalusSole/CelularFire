@@ -1,5 +1,6 @@
 <?php
 
+require '../clases-php/encriptacion.php';
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\Exception;
 
@@ -16,6 +17,7 @@ if(!empty($_POST)){
 			$sql1= "select * from user where username=\"$_POST[username]\" or email=\"$_POST[email]\"";
             $query = $conexion->query($sql1);
             $user=$_POST['username'];
+            $passE = SED::encryption($_POST['password']);
 			while ($r=$query->fetch_array()) {
 				$found=true;
 				break;
@@ -23,7 +25,7 @@ if(!empty($_POST)){
 			if($found){
 				print "<script>alert(\"Nombre de usuario o email ya estan registrados.\");window.location='../registro.php';</script>";
 			}else{
-            $sql = "INSERT INTO user (username, fullname, email, password, estado_cuenta) VALUES ('$_POST[username]', '$_POST[fullname]', '$_POST[email]', '$_POST[password]', '1')";
+            $sql = "INSERT INTO user (username, fullname, email, password, estado_cuenta) VALUES ('$_POST[username]', '$_POST[fullname]', '$_POST[email]', '$passE', '1')";
             if (mysqli_query($conexion, $sql)) {
                 //echo "New record created successfully";
                 

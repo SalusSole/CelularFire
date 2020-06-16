@@ -4,9 +4,11 @@ if(!empty($_POST)){
     if(isset($_POST["username"]) &&isset($_POST["password"]) &&isset($_POST["ec"])){
 		if($_POST["username"]!=""&&$_POST["password"]!=""&&$_POST["ec"]!=""){
 			include "conexion.php";
+			require '../clases-php/encriptacion.php';
 			
+			$passD = SED::encryption($_POST['password']);
 			$user_id=null;
-			$sql1= "select * from user where (username=\"$_POST[username]\" or email=\"$_POST[username]\") and password=\"$_POST[password]\" ";
+			$sql1= "select * from user where (username=\"$_POST[username]\" or email=\"$_POST[username]\") and password=\"$passD\" ";
 			$query = $conexion->query($sql1);
 			while ($r=$query->fetch_array()) {
 				$user_id=$r["id"];
@@ -32,9 +34,12 @@ if(!empty($_POST)){
 	}else if(isset($_POST["username"]) &&isset($_POST["password"])){
 		if($_POST["username"]!=""&&$_POST["password"]!=""){
 			include "conexion.php";
+			require '../clases-php/encriptacion.php';
 			
+			$passD = SED::encryption($_POST['password']);
+
 			$user_id=null;
-			$sql1= "select * from user where (username=\"$_POST[username]\" or email=\"$_POST[username]\") and password=\"$_POST[password]\" ";
+			$sql1= "select * from user where (username=\"$_POST[username]\" or email=\"$_POST[username]\") and password=\"$passD\" ";
 			$query = $conexion->query($sql1);
 			while ($r=$query->fetch_array()) {
 				$user_id=$r["id"];
