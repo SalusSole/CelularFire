@@ -1,4 +1,5 @@
 <br>
+<div class="line">
 <footer>
     <div class="container">
         <div class="contenedor">
@@ -19,10 +20,16 @@
                 </div>  
             </div>
             <div class="row">
-                <div class="col-12">
-                    <br><strong class="text-center">Su compra esta segura</strong>
+                <div class="col-4">
+                    <br>
+                    <strong class="text-center">Su compra esta segura</strong>
+                </div>
+                <div class="col-8">
+                    <br>
+                    <a href="ayuda.php" class="footer-ayuda"><strong class="text-center">Ayuda</strong></a>
                 </div>
             </div>
         </div>
     </div>
 </footer>
+</div>
