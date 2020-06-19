@@ -8,22 +8,22 @@ if($_POST){
 	$total=$_POST['precio'];
 	//echo $total;
             
-			$found=false;
-			$sql1= "select * from envio";
-			$query = $conexion->query($sql1);
-			while ($r=$query->fetch_array()) {
-				$found=true;
-				break;
-      }
-     
-      // $sql_user = "select * from user";
-      // $result = mysqli_query ($conexion, $sql_user);
-      // while ($datos_user=mysqli_fetch_array($result)){
-      //   if($user_id==$datos_user['id']){
-      //     $nombre = $datos_user['fullname'];
-      //     $email = $datos_user['email'];
-      //   }
+			// $found=false;
+			// $sql1= "select * from envio";
+			// $query = $conexion->query($sql1);
+			// while ($r=$query->fetch_array()) {
+			// 	$found=true;
+			// 	break;
       // }
+     
+      $sql_user = "select * from user";
+      $result = mysqli_query ($conexion, $sql_user);
+      while ($datos_user=mysqli_fetch_array($result)){
+        if($user_id==$datos_user['id']){
+          $nombre = $datos_user['fullname'];
+          $email = $datos_user['email'];
+        }
+      }
 
 			// if($found){
 			//agrega los datos del envio a la base de datos	
