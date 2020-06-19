@@ -1,12 +1,12 @@
 <?php
 session_start(); 
 $user_id = $_SESSION["user_id"];
+include "php/conexion.php";
 $bandera1=0;
 $bandera2=0;
 if($_POST){
 	$total=$_POST['precio'];
 	//echo $total;
-			include "php/conexion.php";
             
 			$found=false;
 			$sql1= "select * from envio";
@@ -16,16 +16,16 @@ if($_POST){
 				break;
       }
      
-      $sql_user = "select * from user";
-      $result = mysqli_query ($conexion, $sql_user);
-      while ($datos_user=mysqli_fetch_array($result)){
-        if($user_id==$datos_user['id']){
-          $nombre = $datos_user['fullname'];
-          $email = $datos_user['email'];
-        }
-      }
+      // $sql_user = "select * from user";
+      // $result = mysqli_query ($conexion, $sql_user);
+      // while ($datos_user=mysqli_fetch_array($result)){
+      //   if($user_id==$datos_user['id']){
+      //     $nombre = $datos_user['fullname'];
+      //     $email = $datos_user['email'];
+      //   }
+      // }
 
-			if($found){
+			// if($found){
 			//agrega los datos del envio a la base de datos	
             $sql = "INSERT INTO envio (fecha, codigo_postal, estado, municipio, colonia, calle, exterior, interior, numero, detalles) VALUES (NOW(),'$_POST[cp]','$_POST[estado]','$_POST[municipio]','$_POST[colonia]','$_POST[calle]','$_POST[exterior]','$_POST[interior]','$_POST[numero]','$_POST[detalles]')";
             if (mysqli_query($conexion, $sql)) {
@@ -83,9 +83,9 @@ if($_POST){
       }
       } 
 
-			}else{
-                echo "nope";
-            }
+			// }else{
+      //   echo "nope";
+      // }
 			
 			if($bandera1==1 && $bandera2==1){
 			?>
