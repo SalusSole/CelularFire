@@ -6,7 +6,7 @@ $bandera1=0;
 $bandera2=0;
 if($_POST){
 	$total=$_POST['precio'];
-	//echo $total;
+	// echo $total;
             
 			// $found=false;
 			// $sql1= "select * from envio";
@@ -33,7 +33,7 @@ if($_POST){
             } else {
                   echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
             }
-            if($query!=null){
+            // if($query!=null){
 				//pasa a guardar los elememtos de la compra y la venta en la base de datos
 				$sql = "INSERT INTO compra (id_usuario, fecha, total, status, user, correo) VALUES ('$_SESSION[user_id]',NOW(),'$_POST[precio]','Pendiente', '$nombre', '$email')";
     
@@ -81,7 +81,7 @@ if($_POST){
             }
           } 
       }
-      } 
+      // } 
 
 			// }else{
       //   echo "nope";
@@ -91,7 +91,7 @@ if($_POST){
 			?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -107,6 +107,10 @@ if($_POST){
 <div id="paypal-button"></div>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 </div>
+<div class="text-center">
+  <a href="pago.php?id_compra=<?php echo $compra_id?>" class="btn btn-success" >Finalizado</a>
+</div>
+
 <script>
   paypal.Button.render({
     // Configure environment
@@ -143,7 +147,7 @@ if($_POST){
         // Show a confirmation message to the buyer
         //window.alert('Thank you for your purchase!');
         console.log(data);
-		var id_compra = <?php echo $compra_id ?>;
+		    var id_compra = <?php echo $compra_id ?>;
         //window.alert(id_compra);
         window.location="pago.php?id_compra="+id_compra;
         //window.location="verificador.php?paymentToken="+data.paymentToken+"&paymentID="+data.paymentID;
